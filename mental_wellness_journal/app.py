@@ -1,4 +1,4 @@
-﻿from flask import Flask, render_template, request, redirect, send_file
+from flask import Flask, render_template, request, redirect, send_file
 import sqlite3
 from datetime import datetime
 from collections import Counter
@@ -12,7 +12,6 @@ QUOTES = [
     "It's okay to not be okay.",
     "Every day may not be good... but there is something good in every day."
 ]
-
 
 def init_db():
     conn = sqlite3.connect('journal.db')
@@ -76,3 +75,6 @@ def export():
     return send_file(filepath, as_attachment=True)
 
 if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
