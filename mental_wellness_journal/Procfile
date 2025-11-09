@@ -1,1 +1,1 @@
-web: python app.py
+web: python mental_wellness_journal/app.py
